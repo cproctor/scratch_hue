@@ -8,6 +8,7 @@ setup(
     author='Chris Proctor',
     author_email='chris.proctor@gmail.com',
     url='http://mrproctor.net/scratch',
+    download_url='https://github.com/cproctor/scratch_hue/tarball/0.1',
     classifiers=[
         'Programming Language :: Python',
         'Programming Language :: Python :: 2',
