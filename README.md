@@ -8,13 +8,13 @@ Installation & Setup
    http://scratch.mit.edu/scratch2download/
 2. Install the Scratch Hue Extension by running this command in Terminal:
 
-    sudo pip install scratch_hue_extension
+        sudo pip install scratch_hue_extension
 
 4. Start the Scratch Hue Helper by running this command in Terminal. Right
    before you run this for the first time, press the button on the Hue Base
    Station in Room 6.
 
-    scratch_hue_helper
+        scratch_hue_helper
 
 5. Start the Scratch 2 Offline Editor. Then, holding down the shift key, click 
    on the "File" menu and select "Import Experimental HTTP Extension." You will 
