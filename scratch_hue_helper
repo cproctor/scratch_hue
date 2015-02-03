@@ -16,11 +16,23 @@ import sys
 from os import path
 
 def copy_description_file():
-    source = path.join(path.dirname(path.abspath(__file__)), 'scratch_hue_extension.s2e')
+    extension_description = { 
+        "extensionName": "Hue",
+        "extensionPort": 3316,
+        "blockSpecs": [
+            ["w", "set light %m.lightIndex color to %n", "setcolor", 1, 100],
+            ["w", "set light %m.lightIndex brightness to %n", "setbrightness", 1, 50],
+            ["w", "turn light %m.lightIndex %m.toggle", "seton", 1, "on"]
+        ],
+        "menus": {
+            "lightIndex": [1, 2, 3],
+            "toggle": ["on", "off"]
+        }
+    }
+    
     destination = path.join('/Users', os.environ['USER'], 'Desktop', 'scratch_hue_extension.s2e')
-    with open(source) as sourceFile:
-        with open(destination, 'w') as destinationFile:
-            destinationFile.write(sourceFile.read())
+    with open(destination, 'w') as destinationFile:
+        destinationFile.write(json.dumps(extension_description))
 
 copy_description_file()
 
@@ -114,7 +126,7 @@ def cross_domain_check():
 </cross-domain-policy>
 """
 
-print("The Scratch helper app for controlling Hue lights is running.")
-print("See mrproctor.net/scratch for help.")
-print("Press Control + C to quit.")
+print(" * The Scratch helper app for controlling Hue lights is running. Have fun :)")
+print(" * See mrproctor.net/scratch for help.")
+print(" * Press Control + C to quit.")
 app.run('0.0.0.0', port=3316)
