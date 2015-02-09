@@ -6,8 +6,11 @@ Installation & Setup
 
 1. Install the Scratch 2 Offline Editor. Instructions are here:
    http://scratch.mit.edu/scratch2download/
-2. Install the Scratch Hue Extension by running this command in Terminal:
+2. Install the Scratch Hue Extension by running these commands in Terminal.
+   When you are asked to enter your password, you will not see the letters
+   you type appear on the screen. This is normal.
 
+        sudo easy_install pip
         sudo pip install scratch_hue_extension
 
 4. Start the Scratch Hue Helper by running this command in Terminal. Right
