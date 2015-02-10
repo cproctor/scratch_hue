@@ -29,8 +29,8 @@ def copy_description_file():
             "toggle": ["on", "off"]
         }
     }
-    
-    destination = path.join('/Users', os.environ['USER'], 'Desktop', 'scratch_hue_extension.s2e')
+    username = os.environ.get('USER') or os.environ.get('USERNAME')
+    destination = path.join(os.sep, 'Users', username, 'Desktop', 'scratch_hue_extension.s2e')
     with open(destination, 'w') as destinationFile:
         destinationFile.write(json.dumps(extension_description))
 
