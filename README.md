@@ -1,6 +1,10 @@
 Scratch Hue Extension
 =====================
 
+The Scratch Hue Extension is a helper app which allows you to control a set of 
+Philips Hue lights using Scratch. My students can now write programs to 
+[control the lights in our classroom](http://mrproctor.net/media/hue_demo.mp4).
+
 Installation & Setup
 --------------------
 
