@@ -44,7 +44,10 @@ def get_ip_address():
     result_str = result.read()
     data = json.loads(result_str)
     connection.close()
-    return str(data[0]['internalipaddress']) or False
+    if data:
+        return str(data[0]['internalipaddress'])
+    else:
+        return False
 
 def create_scale(d_min, d_max, r_min, r_max):
     def scale(val):
@@ -69,6 +72,8 @@ for logger in loggers:
     logger.setLevel(logging.INFO)
 
 ip = get_ip_address()
+if not ip:
+    raise IOError("Could not connect to the Hue Base Station. Is it plugged in? Is your wifi on?")
 app.logger.info("Found bridge at " + ip)
 bridge = phue.Bridge(ip)
 jobs = set()

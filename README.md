@@ -10,6 +10,10 @@ Installation & Setup
 
 1. Install the Scratch 2 Offline Editor. Instructions are here:
    http://scratch.mit.edu/scratch2download/
+   (If OS X tells you it cannot be installed because it's from an unidentified
+   developer, open System Preferences and select the "Security and Privacy" 
+   pane.)
+
 2. Install the Scratch Hue Extension by running these commands in Terminal.
    When you are asked to enter your password, you will not see the letters
    you type appear on the screen. This is normal.
