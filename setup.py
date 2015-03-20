@@ -12,7 +12,7 @@ setup(
     package_data = {
         '': ['COPYING.txt', 'LICENSE', 'README.md', 'scratch_hue_extension.s2e', 'setup.cfg']
     },
-    version = '0.0.8',
+    version = '0.0.9',
     description = 'Provides a http helper app to allow Scratch 2 to control Philips Hue lights',
     author='Chris Proctor',
     author_email='chris.proctor@gmail.com',
