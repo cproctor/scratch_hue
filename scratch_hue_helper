@@ -8,7 +8,7 @@
 
 import phue
 import json
-import httplib
+import requests
 from flask import Flask
 import logging
 import os
@@ -38,12 +38,8 @@ copy_description_file()
 
 def get_ip_address():
     app.logger.info("Looking for Bridge IP address...")
-    connection = httplib.HTTPSConnection('www.meethue.com')
-    connection.request('GET', '/api/nupnp')
-    result = connection.getresponse()
-    result_str = result.read()
-    data = json.loads(result_str)
-    connection.close()
+    response = requests.get('https://www.meethue.com/api/nupnp')
+    data = response.json()
     if data:
         return str(data[0]['internalipaddress'])
     else:
