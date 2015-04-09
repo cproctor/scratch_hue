@@ -8,11 +8,11 @@ setup(
     packages = find_packages(),
     # py_modules = ['ez_setup'],
     scripts = ['scratch_hue_helper'],
-    install_requires = ['phue', 'flask'],
+    install_requires = ['phue', 'flask', 'requests'],
     package_data = {
         '': ['COPYING.txt', 'LICENSE', 'README.md', 'scratch_hue_extension.s2e', 'setup.cfg']
     },
-    version = '0.0.11',
+    version = '0.0.12',
     description = 'Provides a http helper app to allow Scratch 2 to control Philips Hue lights',
     author='Chris Proctor',
     author_email='chris.proctor@gmail.com',

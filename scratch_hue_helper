@@ -37,13 +37,20 @@ def copy_description_file():
 copy_description_file()
 
 def get_ip_address():
-    app.logger.info("Looking for Bridge IP address...")
     response = requests.get('https://www.meethue.com/api/nupnp')
     data = response.json()
     if data:
         return str(data[0]['internalipaddress'])
     else:
         return False
+
+def get_policy(app):
+    response = requests.get('http://mrproctor.net/scratch_extension_policy')
+    policy = response.json()
+    return policy[app]
+
+if get_policy('hue') != 'enabled':
+    raise ValueError("The Scratch Hue Extension is currently disabled.")
 
 def create_scale(d_min, d_max, r_min, r_max):
     def scale(val):
