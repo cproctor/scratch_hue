@@ -40,10 +40,8 @@ About
 -----
 
 This package provides a helper app to allow the Scratch 2 Offline Editor to 
-control a set of Philips Hue lights. Currently, only three lights are supported,
-but more could be added  by configuration if necessary. Instructions for implementing 
+control a set of Philips Hue lights. Instructions for implementing 
 a helper app are at http://wiki.scratch.mit.edu/w/images/ExtensionsDoc.HTTP-9-11.pdf.
 
-This extension was written by Chris Proctor, who teaches 6th and 7th grade 
-Computer Science at the Girls' Middle School in Palo Alto, CA. His students 
-are now in control of the lights. 
+This extension was written by [Chris Proctor](http://chrisproctor.net), who taught 6th and 7th grade 
+Computer Science at the Girls' Middle School in Palo Alto, CA from 2013 to 2015. 
