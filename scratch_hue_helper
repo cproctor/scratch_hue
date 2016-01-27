@@ -15,7 +15,14 @@ import os
 import sys
 from os import path
 
+# It's not generally good practice to disable warnings, but this is one of 
+# the first scripts students will run, so I am prioritizing a reduction of
+# any unnecessary output
+import warnings
+warnings.filterwarnings("ignore")
+
 def copy_description_file():
+    "Copies an extension description file to the desktop so it can be imported by Scratch"
     extension_description = { 
         "extensionName": "Hue",
         "extensionPort": 3316,
@@ -36,6 +43,7 @@ def copy_description_file():
 copy_description_file()
 
 def get_ip_address():
+    "Uses Hue's web tool to find the local IP address of the base station"
     response = requests.get('https://www.meethue.com/api/nupnp')
     data = response.json()
     if data:
@@ -44,6 +52,7 @@ def get_ip_address():
         return False
 
 def get_policy(app):
+    "Gets a policy statement from mrproctor.net (to find out if the toy is disabled)"
     response = requests.get('http://mrproctor.net/scratch_extension_policy')
     policy = response.json()
     return policy[app]
@@ -52,6 +61,7 @@ if get_policy('hue') != 'enabled':
     raise ValueError("The Scratch Hue Extension is currently disabled.")
 
 def create_scale(d_min, d_max, r_min, r_max):
+    "A simple helper which linearly maps a domain to a range"
     def scale(val):
         normalized = (val - d_min) / float(d_max - d_min)
         return max(r_min, min(r_max, int((r_max - r_min) * normalized + r_min)))
@@ -77,7 +87,14 @@ ip = get_ip_address()
 if not ip:
     raise IOError("Could not connect to the Hue Base Station. Is it plugged in? Is your wifi on?")
 app.logger.info("Found bridge at " + ip)
-bridge = phue.Bridge(ip)
+
+try:
+    bridge = phue.Bridge(ip)
+except phue.PhueRegistrationException:
+    raise IOError("""
+This computer was not recognized by the base station. Try running this again, 
+and push the button on the Hue base station right after you start this script.""")
+
 jobs = set()
 
 def reset():
