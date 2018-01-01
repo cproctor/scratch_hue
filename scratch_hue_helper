@@ -57,8 +57,8 @@ def get_policy(app):
     policy = response.json()
     return policy[app]
 
-if get_policy('hue') != 'enabled':
-    raise ValueError("The Scratch Hue Extension is currently disabled.")
+#if get_policy('hue') != 'enabled':
+    #raise ValueError("The Scratch Hue Extension is currently disabled.")
 
 def create_scale(d_min, d_max, r_min, r_max):
     "A simple helper which linearly maps a domain to a range"
